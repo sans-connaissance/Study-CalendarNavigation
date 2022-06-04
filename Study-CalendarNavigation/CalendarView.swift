@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     
+    @StateObject var vm = CalendarViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,19 +23,18 @@ struct CalendarView: View {
                     Text("F")
                     Text("S")
                 }
+                //FOR EACH GOES HERE, THEN WHEN CLICKED IT DISPLAYS THE ASSOCIATED DAYVIEW
                 HStack(alignment:.center, spacing: 10) {
-                    Text("1")
-                    Text("2")
-                    Text("3")
-                    Text("4")
-                    Text("5")
-                    Text("6")
-                    Text("7")
+                    ForEach(vm.dayDates, id: \.self) { date in
+                        Text("\(date)")
+                    }
                 }
                 Divider()
-                DayView()
                 Spacer()
                 
+            }
+            .onAppear {
+                vm.getDays()
             }
         }
     }
@@ -42,11 +42,13 @@ struct CalendarView: View {
 
 struct DayView: View {
     
+    var dayDate: Int
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack{
                 Spacer()
-                Text("Saturday June 3, 2022")
+                Text("\(dayDate)")
                 Spacer()
             }
             Text("9 AM")
