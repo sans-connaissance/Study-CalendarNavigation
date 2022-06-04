@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CalendarView: View {
     
     
     var body: some View {
@@ -31,7 +31,6 @@ struct ContentView: View {
                     Text("6")
                     Text("7")
                 }
-                Text("Saturday June 3, 2022")
                 Divider()
                 DayView()
                 Spacer()
@@ -45,6 +44,11 @@ struct DayView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            HStack{
+                Spacer()
+                Text("Saturday June 3, 2022")
+                Spacer()
+            }
             Text("9 AM")
             Rectangle()
                 .frame(width: 300, height: 2, alignment: .center)
@@ -57,15 +61,13 @@ struct DayView: View {
             Text("Noon")
             Rectangle()
                 .frame(width: 300, height: 2, alignment: .center)
-            Text("1 PM")
-            Rectangle()
-                .frame(width: 300, height: 2, alignment: .center)
         }
+        .padding(.leading)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CalendarView()
     }
 }
