@@ -33,7 +33,7 @@ struct ContentView: View {
                 }
                 Text("Saturday June 3, 2022")
                 Divider()
-                
+                DayView()
                 Spacer()
                 
             }
@@ -44,8 +44,23 @@ struct ContentView: View {
 struct DayView: View {
     
     var body: some View {
-        
-        
+        VStack(alignment: .leading) {
+            Text("9 AM")
+            Rectangle()
+                .frame(width: 300, height: 2, alignment: .center)
+            Text("10 AM")
+            Rectangle()
+                .frame(width: 300, height: 2, alignment: .center)
+            Text("11 AM")
+            Rectangle()
+                .frame(width: 300, height: 2, alignment: .center)
+            Text("Noon")
+            Rectangle()
+                .frame(width: 300, height: 2, alignment: .center)
+            Text("1 PM")
+            Rectangle()
+                .frame(width: 300, height: 2, alignment: .center)
+        }
     }
 }
 
